@@ -5,6 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
+import ServicePage from "./components/ServicePage";
+import AboutUsPage from "./components/AboutUsPage";
+import ContactUsPage from "./components/ContactUsPage";
+import CartPage from "./components/CartPage";
+import ErrorPage from "./components/ErrorPage";
+import RestaurantPage from "./components/RestaurantPage";
 
 const Applayout = () => {
   return (
@@ -18,12 +24,34 @@ const Applayout = () => {
 const appRouter = createBrowserRouter( [
   {
     path: "/",
-    element: <Applayout />, 
+    element: <Applayout />,
+    errorElement: <ErrorPage />, 
     children:[
       {
         path: "/",
         element: <App />, 
       },
+      {
+        path: "/service",
+        element: <ServicePage />, 
+      },
+      {
+        path: "/aboutus",
+        element: <AboutUsPage />, 
+      },
+      {
+        path: "/contactus",
+        element: <ContactUsPage />, 
+      },
+      {
+        path: "/cart",
+        element: <CartPage />, 
+      },
+      {
+        path: "/restaurant/:id",
+        element: <RestaurantPage />, 
+      },
+
     ]
   },
 ]);

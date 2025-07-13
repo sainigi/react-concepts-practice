@@ -1,4 +1,6 @@
 import logo from ".././logo.svg";
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <>
@@ -7,19 +9,19 @@ const Header = () => {
 
         <ul className="flex gap-5">
           <li>
-            <button>Home</button>
+            <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <button>Services</button>
+            <Link to={"/service"}>Services</Link>
           </li>
           <li>
-            <button>About Us</button>
+            <Link to={"/aboutus"}>About Us</Link>
           </li>
           <li>
-            <button>Contact Us</button>
+            <Link to={"/contactus"}>Contact Us</Link>
           </li>
           <li>
-            <button>Cart</button>
+            <Link to={"/cart"}>Cart</Link>
           </li>
         </ul>
       </div>

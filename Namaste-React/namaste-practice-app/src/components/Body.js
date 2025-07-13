@@ -1,6 +1,7 @@
 import RestaurantCard from "./ResaturantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [rescards, setRescards] = useState([]);
@@ -31,9 +32,7 @@ const Body = () => {
       console.log("error", er);
     }
   }
-  //   console.log("Restaurant Cards Data:", rescards);
 
-  //   console.log("filtered REcards",filteredRescards);
   if (!rescards) return null;
   return rescards?.length === 0 ? (
     <Shimmer />
@@ -64,7 +63,9 @@ const Body = () => {
       </div>
       <div className="flex gap-5 w-full flex-wrap">
         {filteredRescards.map((rescard) => (
-          <RestaurantCard key={rescard?.info?.id} resData={rescard} />
+          <Link to={`/restaurant/${rescard?.info?.id}`}>
+            <RestaurantCard key={rescard?.info?.id} resData={rescard} />
+          </Link>
         ))}
       </div>
     </div>
